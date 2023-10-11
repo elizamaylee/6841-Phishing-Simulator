@@ -1,0 +1,25 @@
+:root {
+  --white: #ffffff;
+  --ash: #f7f8fc;
+  --grey: #d6dae2;
+  --blue-grey: #525f7f;
+  --dark1: #212529;
+  --light-blue: #70c5f4;
+  --primary-blue: #25a7f1;
+  --dark-blue: #0081ca;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
