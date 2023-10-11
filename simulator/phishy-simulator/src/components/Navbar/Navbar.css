@@ -6,6 +6,7 @@ nav {
   gap: 10px;
   flex-shrink: 0;
   align-self: stretch;
+  background: var(--white);
 }
 .nav-menu {
   display: flex;

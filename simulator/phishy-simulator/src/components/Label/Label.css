@@ -1,0 +1,17 @@
+label {
+  display: flex;
+  padding: 2.4px 12.8px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 14.4px;
+  background: #fdf6ca;
+  color: #e0a100;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+}
