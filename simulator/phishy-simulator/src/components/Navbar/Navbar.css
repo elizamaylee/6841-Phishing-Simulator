@@ -1,0 +1,25 @@
+nav {
+  display: flex;
+  height: 64px;
+  padding: 8px 120px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+.nav-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+  flex: 1 0 0;
+  list-style-type: none;
+}
+.nav-button {
+  color: var(--system-blue-gray, #525f7f);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
