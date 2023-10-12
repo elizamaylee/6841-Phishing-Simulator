@@ -6,7 +6,7 @@ import Label from "../Label/Label";
 const TemplateCard = (props: { title: string; active: boolean }) => {
   const { title, active } = props;
   return (
-    <template>
+    <template onClick={() => console.log("clicked template card")}>
       <div className="top-rectangle"></div>
       <div className="card-content-container">
         <img className="template-image" src={arc} alt="" />
