@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, TemplateCard } from "./components";
+import { Navbar, TemplateCard, Button } from "./components";
 import "./App.css";
 
 const App = () => {
@@ -25,6 +25,20 @@ const App = () => {
               active
             ></TemplateCard>
             <TemplateCard title="2023 Referendum" active></TemplateCard>
+          </div>
+          <div className="buttons-container">
+            <Button
+              text="Return"
+              textColour=""
+              backgroundColour=""
+              onClick={() => console.log("Return")}
+            ></Button>
+            <Button
+              text="Continue"
+              textColour="white"
+              backgroundColour="#25A7F1"
+              onClick={() => console.log("Continue")}
+            ></Button>
           </div>
         </div>
       </div>
