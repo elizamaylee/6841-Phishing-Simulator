@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, TemplateCard, Button } from "./components";
 import "./App.css";
 
 const App = () => {
+  // Set the clicked template to be active
+  const [activeTemplate, setActiveTemplate] = useState("");
+
+  const templateData = [
+    { title: "Important Arc Club Executive Updates" },
+    { title: "UNSW Exam Timetable Release" },
+    { title: "2023 Referendum" },
+  ];
+
+  const handleSelectTemplate = (value: string) => {
+    console.log("activeTemplate = " + activeTemplate);
+    setActiveTemplate(value);
+  };
+
   return (
     <>
       <Navbar></Navbar>
@@ -16,28 +30,27 @@ const App = () => {
             </div>
           </div>
           <div className="cards-gallery">
-            <TemplateCard
-              title="Important Arc Club Executive Updates"
-              active
-            ></TemplateCard>
-            <TemplateCard
-              title="UNSW Exam Timetable Release"
-              active
-            ></TemplateCard>
-            <TemplateCard title="2023 Referendum" active></TemplateCard>
+            {templateData.map((item) => {
+              return (
+                <TemplateCard
+                  title={item.title}
+                  onClick={() => handleSelectTemplate(item.title)}
+                ></TemplateCard>
+              );
+            })}
           </div>
           <div className="buttons-container">
             <Button
               text="Return"
-              textColour=""
-              backgroundColour=""
+              textColour="#525F7F"
+              backgroundColour="#F7F8FC"
               onClick={() => console.log("Return")}
             ></Button>
             <Button
               text="Continue"
               textColour="white"
               backgroundColour="#25A7F1"
-              onClick={() => console.log("Continue")}
+              onClick={() => console.log("Continue", { activeTemplate })}
             ></Button>
           </div>
         </div>
