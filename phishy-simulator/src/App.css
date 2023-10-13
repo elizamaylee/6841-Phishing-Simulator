@@ -19,6 +19,7 @@ body {
   margin: 0;
   font-family: "Inter", sans-serif;
   background: var(--ash);
+  color: var(--blue-grey);
 }
 
 a {

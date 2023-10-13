@@ -3,10 +3,13 @@ import "./TemplateCard.css";
 import { arc, unsw, referendum } from "../../assets";
 import Label from "../Label/Label";
 
-const TemplateCard = (props: { title: string; active: boolean }) => {
-  const { title, active } = props;
+const TemplateCard = (props: {
+  title: string;
+  onClick: React.MouseEventHandler<HTMLTemplateElement>;
+}) => {
+  const { title, onClick } = props;
   return (
-    <template onClick={() => console.log("clicked template card")}>
+    <template onClick={onClick}>
       <div className="top-rectangle"></div>
       <div className="card-content-container">
         <img className="template-image" src={arc} alt="" />
