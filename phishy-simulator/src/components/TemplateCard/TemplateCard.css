@@ -8,6 +8,7 @@ template {
   border-radius: 12.8px;
   border: 0.8px solid var(--grey);
   background: var(--ash);
+  cursor: pointer;
 }
 
 .top-rectangle {

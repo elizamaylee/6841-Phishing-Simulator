@@ -5,4 +5,5 @@ button {
   gap: 10px;
   border-radius: 8px;
   border: 1px solid var(--system-blue-gray, #525f7f);
+  cursor: pointer;
 }
