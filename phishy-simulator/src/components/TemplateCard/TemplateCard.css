@@ -31,7 +31,8 @@ template {
 
 .template-image {
   width: 236.8px;
-  /* height: 231.834px; */
+  height: 128px;
+  object-fit: cover;
   flex-shrink: 0;
   border-radius: 6.4px;
 }
