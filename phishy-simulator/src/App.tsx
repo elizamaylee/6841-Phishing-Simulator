@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { Navbar, TemplateCard, Button } from "./components";
 import "./App.css";
+import { arc, unsw, referendum } from "./assets";
 
 const App = () => {
   // Set the clicked template to be active
   const [activeTemplate, setActiveTemplate] = useState("");
 
   const templateData = [
-    { title: "Important Arc Club Executive Updates" },
-    { title: "UNSW Exam Timetable Release" },
-    { title: "2023 Referendum" },
+    { title: "Important Arc Club Executive Updates", img: arc },
+    { title: "UNSW Exam Timetable Release", img: unsw },
+    { title: "2023 Referendum", img: referendum },
   ];
 
   const handleSelectTemplate = (value: string) => {
@@ -34,6 +35,7 @@ const App = () => {
               return (
                 <TemplateCard
                   title={item.title}
+                  img={item.img}
                   onClick={() => handleSelectTemplate(item.title)}
                 ></TemplateCard>
               );
@@ -50,7 +52,7 @@ const App = () => {
               text="Continue"
               textColour="white"
               backgroundColour="#25A7F1"
-              onClick={() => console.log("Continue", { activeTemplate })}
+              onClick={() => console.log("COntinue")}
             ></Button>
           </div>
         </div>
