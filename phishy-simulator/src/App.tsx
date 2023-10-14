@@ -59,7 +59,7 @@ const App = () => {
               text="Continue"
               textColour="white"
               backgroundColour="#25A7F1"
-              onClick={() => console.log("COntinue")}
+              onClick={() => console.log("Continue")}
             ></Button>
           </div>
         </div>
