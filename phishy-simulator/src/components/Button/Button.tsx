@@ -1,5 +1,5 @@
 import React from "react";
-import "./Button.css";
+import styled from "styled-components";
 
 interface ButtonProps {
   text: string;
@@ -11,7 +11,7 @@ interface ButtonProps {
 const Button = (props: ButtonProps) => {
   const { text, textColour, backgroundColour, onClick } = props;
   return (
-    <button
+    <StyledButton
       onClick={onClick}
       style={{
         background: backgroundColour,
@@ -19,9 +19,18 @@ const Button = (props: ButtonProps) => {
       }}
     >
       {text}
-    </button>
+    </StyledButton>
   );
-  // return <a href="#">{text}</a>;
 };
+
+const StyledButton = styled.button`
+  display: flex;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--system-blue-gray, #525f7f);
+  cursor: pointer;
+`;
 
 export default Button;
