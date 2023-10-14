@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Navbar, TemplateCard, Button } from "./components";
 import "./App.css";
 import { arc, unsw, referendum } from "./assets";
+import styled from "styled-components";
+// import StyledTest from "./components/TestComponent/TestComponent";
 
 const App = () => {
   // Set the clicked template to be active
@@ -16,6 +18,10 @@ const App = () => {
   const handleSelectTemplate = (value: string) => {
     console.log("activeTemplate = " + activeTemplate);
     setActiveTemplate(value);
+  };
+
+  const toggleActiveStyles = (element: string) => {
+    return activeTemplate === element ? "active" : "";
   };
 
   return (
@@ -37,6 +43,7 @@ const App = () => {
                   title={item.title}
                   img={item.img}
                   onClick={() => handleSelectTemplate(item.title)}
+                  className={toggleActiveStyles(item.title)}
                 ></TemplateCard>
               );
             })}
@@ -60,5 +67,15 @@ const App = () => {
     </>
   );
 };
+
+const Btn = styled.button`
+  display: flex;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--system-blue-gray, #525f7f);
+  cursor: pointer;
+`;
 
 export default App;
