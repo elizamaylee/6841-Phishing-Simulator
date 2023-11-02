@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar, TemplateCard, Button } from "./components";
 import "./App.css";
 import { arc, unsw, referendum } from "./assets";
@@ -6,6 +6,13 @@ import styled from "styled-components";
 // import StyledTest from "./components/TestComponent/TestComponent";
 
 const App = () => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch("/hello")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+
   // Set the clicked template to be active
   const [activeTemplate, setActiveTemplate] = useState("");
 
@@ -27,6 +34,9 @@ const App = () => {
   return (
     <>
       <Navbar></Navbar>
+      <div>
+        <p>{data}</p>
+      </div>
       <div className="body-container">
         <div className="content-container">
           <div className="heading-container">
