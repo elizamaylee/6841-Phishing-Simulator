@@ -18,10 +18,10 @@ const sendEmail = (to, subject) => {
     },
   });
 
-  var htmlFile = fs.readFileSync("./emails/basic.html").toString();
+  var htmlFile = fs.readFileSync("./emails/unsw-exam-release.html").toString();
   var template = handlebars.compile(htmlFile);
   var replacements = {
-    username: "Eliza",
+    username: "Eliza L",
   };
   var htmlToSend = template(replacements);
 
