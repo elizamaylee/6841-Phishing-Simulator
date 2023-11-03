@@ -15,6 +15,7 @@ const App = () => {
 
   // Set the clicked template to be active
   const [activeTemplate, setActiveTemplate] = useState("");
+  const [releaseDate, setReleaseDate] = useState("");
 
   const templateData = [
     { title: "Important Arc Club Executive Updates", img: arc },
