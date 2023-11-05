@@ -52,7 +52,7 @@ export const FORM_STATE = {
       valid: false,
       dirty: false,
       value: {
-        users: [], // users in format {email: "", name: ""}
+        emails: [""], // users in format {email: "", name: ""}
       },
     },
     delivery: {

@@ -17,8 +17,7 @@ const SelectTemplateForm = (
   const { register, handleSubmit, control } = useForm({
     shouldUseNativeValidation: true,
     defaultValues: {
-      // templateId: form.steps.template.value.templateId,
-      templateId: 0,
+      templateId: form.steps.template.value.templateId,
     },
   });
 

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Button from "../../Button/Button";
 import { ReactMultiEmail, isEmail } from "react-multi-email";
 import "react-multi-email/dist/style.css";
 import "./SelectTargetForm.css";
+import { FormStateContext } from "../Form";
+import { useForm, useFormState } from "react-hook-form";
+import { produce } from "immer";
 
 const SelectTargetForm = (
   props: React.PropsWithChildren<{
@@ -10,11 +13,58 @@ const SelectTargetForm = (
     onPrev: () => void;
   }>
 ) => {
+  const { form, setForm } = useContext(FormStateContext);
+
+  const { register, handleSubmit, control } = useForm({
+    shouldUseNativeValidation: true,
+    defaultValues: {
+      emails: form.steps.target.value.emails,
+    },
+  });
+
+  // Forbid navigation to other steps whenever the form becomes dirty
+  const { isDirty } = useFormState({ control });
+
+  const { ref: templateRef, ...targetControl } = register("emails", {
+    required: true,
+  });
+
+  useEffect(() => {
+    setForm(
+      produce((form) => {
+        form.steps.template.dirty = isDirty;
+      })
+    );
+  }, [isDirty, setForm]);
+
   const [emails, setEmails] = React.useState<string[]>([]);
   const [focused, setFocused] = React.useState(false);
 
+  const handleSaveEmails = (emails: string[]) => {
+    setEmails(emails);
+    setForm(
+      produce((form) => {
+        form.steps.target.value.emails = emails;
+      })
+    );
+  };
+
   return (
-    <form>
+    <form
+      onSubmit={handleSubmit((value) => {
+        setForm(
+          produce((formState) => {
+            formState.steps.target = {
+              value,
+              valid: true,
+              dirty: false,
+            };
+          })
+        );
+
+        props.onNext();
+      })}
+    >
       <div className="body-container">
         <div className="content-container">
           <div className="heading-container">
@@ -27,7 +77,7 @@ const SelectTargetForm = (
           <ReactMultiEmail
             emails={emails}
             onChange={(_emails: string[]) => {
-              setEmails(_emails);
+              handleSaveEmails(_emails);
             }}
             autoFocus={true}
             onFocus={() => setFocused(true)}
