@@ -1,4 +1,3 @@
-import Navbar from "../../Navbar/Navbar";
 import { TemplateCard, Button } from "../..";
 import { arc, unsw, referendum } from "../../../assets";
 import { useState, useContext, useEffect } from "react";

@@ -1,5 +1,9 @@
-import React from "react";
 import { Button } from "../..";
+import { arc, unsw, referendum } from "../../../assets";
+import { useState, useContext, useEffect } from "react";
+import { useForm, useFormState } from "react-hook-form";
+import { produce } from "immer";
+import { FormStateContext } from "../Form";
 
 const SelectDeliveryForm = (
   props: React.PropsWithChildren<{
@@ -7,6 +11,41 @@ const SelectDeliveryForm = (
     onPrev: () => void;
   }>
 ) => {
+  const { form, setForm } = useContext(FormStateContext);
+
+  const { register, handleSubmit, control } = useForm({
+    shouldUseNativeValidation: true,
+    defaultValues: {
+      deliveryDate: form.steps.delivery.value.deliveryDate,
+    },
+  });
+
+  // Forbid navigation to other steps whenever the form becomes dirty
+  const { isDirty } = useFormState({ control });
+
+  //   const { ref: deliveryDateRef, ...deliveryDateControl } = register(
+  //     "deliveryDate",
+  //     {
+  //       required: true,
+  //     }
+  //   );
+
+  useEffect(() => {
+    setForm(
+      produce((form) => {
+        form.steps.delivery.dirty = isDirty;
+      })
+    );
+  }, [isDirty, setForm]);
+
+  const handleChangeDate = (date: Date) => {
+    setForm(
+      produce((form) => {
+        form.steps.delivery.value.deliveryDate = date;
+      })
+    );
+  };
+
   return (
     <form>
       <div className="body-container">
@@ -18,7 +57,10 @@ const SelectDeliveryForm = (
               phishing email simulation.
             </div>
           </div>
-          <input type="date" />
+          <input
+            type="datetime-local"
+            onChange={(e) => handleChangeDate(new Date(e.target.value))}
+          />
           <input
             type="checkbox"
             className="toggle-switch-checkbox"

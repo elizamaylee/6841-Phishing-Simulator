@@ -59,8 +59,7 @@ export const FORM_STATE = {
       valid: false,
       dirty: false,
       value: {
-        deliveryDate: "",
-        deliveryTime: "",
+        deliveryDate: new Date(),
         recurring: false,
       },
     },
