@@ -18,6 +18,13 @@ const SelectDeliveryForm = (
               phishing email simulation.
             </div>
           </div>
+          <input type="date" />
+          <input
+            type="checkbox"
+            className="toggle-switch-checkbox"
+            name="toggleSwitch"
+            id="toggleSwitch"
+          />
           <div className="buttons-container">
             <Button
               text="Return"

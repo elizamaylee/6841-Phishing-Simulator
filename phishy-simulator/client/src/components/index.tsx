@@ -5,6 +5,7 @@ import Form from "./Form/Form";
 import SelectTemplateForm from "./Form/SelectTemplateForm/SelectTemplateForm";
 import SelectTargetForm from "./Form/SelectTargetForm/SelectTargetForm";
 import WelcomeForm from "./Form/WelcomeForm/WelcomeForm";
+import PreviewForm from "./Form/PreviewForm/PreviewForm";
 
 export {
   Navbar,
@@ -14,4 +15,5 @@ export {
   SelectTemplateForm,
   SelectTargetForm,
   WelcomeForm,
+  PreviewForm,
 };
