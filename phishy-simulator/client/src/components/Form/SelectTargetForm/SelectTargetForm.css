@@ -1,5 +1,6 @@
 .react-multi-email {
   border-radius: 8px;
+  width: 100%;
 }
 
 .react-multi-email [data-tag],
@@ -11,6 +12,6 @@ input {
   font-weight: 400;
 }
 
-.react-multi-email [data-tag-handle] {
-  color: grey;
+input {
+  color: var(--dark1);
 }

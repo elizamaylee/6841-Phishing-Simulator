@@ -12,7 +12,7 @@ const SelectTargetForm = (
 ) => {
   const [emails, setEmails] = React.useState<string[]>([]);
   const [focused, setFocused] = React.useState(false);
-  //   const { form, setForm } = useContext(FormStateContext);
+
   return (
     <form>
       <div className="body-container">
