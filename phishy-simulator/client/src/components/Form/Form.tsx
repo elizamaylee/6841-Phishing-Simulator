@@ -1,4 +1,10 @@
-import { createContext, useState, useCallback, useContext } from "react";
+import {
+  createContext,
+  useState,
+  useCallback,
+  useContext,
+  useEffect,
+} from "react";
 import { produce } from "immer";
 import { Tab } from "@headlessui/react";
 import {
@@ -70,6 +76,18 @@ export const FormStateContext = createContext({
 
 const Form = () => {
   const [form, setForm] = useState(FORM_STATE);
+
+  // const onComplete = useCallback((state) => {
+  //   console.log("Complete!");
+  // }, []);
+
+  // useEffect(() => {
+  //   const lastStepIndex = FORM_STEPS.length;
+  //   if (form.selectedIndex == lastStepIndex) {
+  //     onComplete();
+  //   }
+  // }, [form.selectedIndex, onComplete]);
+
   return (
     <FormStateContext.Provider value={{ form, setForm }}>
       <CreateTaskMultiStepForm />
@@ -137,6 +155,7 @@ const CreateTaskMultiStepForm = () => {
         </Tab.Panel>
         <Tab.Panel>
           <PreviewForm onNext={next} onPrev={prev}></PreviewForm>
+          <pre>{JSON.stringify(form, null, 2)}</pre>
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>

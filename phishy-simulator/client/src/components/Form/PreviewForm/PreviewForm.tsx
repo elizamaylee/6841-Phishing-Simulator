@@ -30,6 +30,7 @@ const PreviewForm = (
               wowow amazing you're gonna phish them
             </div>
           </div>
+          <div>{/* <pre>{JSON.stringify(form, null, 2)}</pre> */}</div>
           <Button
             text="Send preview email"
             textColour="white"
