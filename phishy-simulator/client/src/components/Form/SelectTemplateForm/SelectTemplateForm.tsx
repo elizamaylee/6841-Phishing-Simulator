@@ -39,21 +39,26 @@ const SelectTemplateForm = (
   // const [data, setData] = useState(null);
 
   // Set the clicked template to be active
-  const [activeTemplate, setActiveTemplate] = useState("");
+  const [activeTemplateId, setActiveTemplateId] = useState(0);
 
   const templateData = [
-    { title: "Important Arc Club Executive Updates", img: arc },
-    { title: "UNSW Exam Timetable Release", img: unsw },
-    { title: "2023 Referendum", img: referendum },
+    { index: 0, title: "Important Arc Club Executive Updates", img: arc },
+    { index: 1, title: "UNSW Exam Timetable Release", img: unsw },
+    { index: 2, title: "2023 Referendum", img: referendum },
   ];
 
-  const handleSelectTemplate = (value: string) => {
-    console.log("activeTemplate = " + activeTemplate);
-    setActiveTemplate(value);
+  const handleSelectTemplate = (index: number) => {
+    // console.log("activeTemplate = " + activeTemplate);
+    setActiveTemplateId(index);
+    setForm(
+      produce((form) => {
+        form.steps.template.value.templateId = index;
+      })
+    );
   };
 
-  const toggleActiveStyles = (element: string) => {
-    return activeTemplate === element ? "active" : "";
+  const toggleActiveStyles = (elementId: number) => {
+    return activeTemplateId === elementId ? "active" : "";
   };
 
   return (
@@ -87,8 +92,8 @@ const SelectTemplateForm = (
                 <TemplateCard
                   title={item.title}
                   img={item.img}
-                  onClick={() => handleSelectTemplate(item.title)}
-                  className={toggleActiveStyles(item.title)}
+                  onClick={() => handleSelectTemplate(item.index)}
+                  className={toggleActiveStyles(item.index)}
                 ></TemplateCard>
               );
             })}
