@@ -6,6 +6,7 @@ import {
   SelectTemplateForm,
   SelectTargetForm,
 } from "../../components";
+import SelectDeliveryForm from "./SelectDeliveryForm/SelectDeliveryForm";
 
 export const FORM_STEPS = [
   {
@@ -118,19 +119,16 @@ const CreateTaskMultiStepForm = () => {
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel>
-          <div>WELCOME SCREEN</div>
           <WelcomeForm onNext={next} onPrev={prev}></WelcomeForm>
         </Tab.Panel>
         <Tab.Panel>
-          <div>SELECT TEMPLATE</div>
           <SelectTemplateForm onNext={next} onPrev={prev}></SelectTemplateForm>
         </Tab.Panel>
         <Tab.Panel>
-          <div>SELECT TARGET</div>
           <SelectTargetForm onNext={next} onPrev={prev}></SelectTargetForm>
         </Tab.Panel>
         <Tab.Panel>
-          <div>SELECT DELIVERY</div>
+          <SelectDeliveryForm onNext={next} onPrev={prev}></SelectDeliveryForm>
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>

@@ -72,7 +72,6 @@ const SelectTemplateForm = (
         props.onNext();
       })}
     >
-      <Navbar></Navbar>
       <div className="body-container">
         <div className="content-container">
           <div className="heading-container">

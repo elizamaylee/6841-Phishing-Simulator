@@ -1,9 +1,14 @@
-import { Form } from "./components";
+import { Form, Navbar } from "./components";
 import "./App.css";
 import styled from "styled-components";
 
 const App = () => {
-  return <Form></Form>;
+  return (
+    <>
+      <Navbar></Navbar>
+      <Form></Form>
+    </>
+  );
 };
 
 const Btn = styled.button`
